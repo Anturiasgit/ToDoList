@@ -1,0 +1,14 @@
+#todolist {
+    text-align: center;
+}
+
+.task {
+    list-style-type: none;
+} 
+
+form{
+    position: absolute; 
+    bottom: 50px;
+    right: 20px;
+    position: fixed;
+}

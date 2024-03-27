@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="todolist.js" defer></script>
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <div id="todolist">
+        <h3>To-Do List</h3>
+        <ul id="list">
+            <li class="task"><input type="checkbox" id="task1" name="task1">
+                <label for="task1">Task 1</label>
+            </li>
+            <li class="task"><input type="checkbox" id="task2" name="task2">
+                <label for="task2">Task 2</label>
+            </li>
+        </ul>
+    </div>
+
+    <div id="add">
+        <form action="#" method="post">
+            <label for="tasktoadd">New Task : </label>
+            <input type="text" id="tasktoadd" name="tasktoadd" required>
+            <input type="submit" value="OK">
+        </form>
+    </div>
+  
+</body>
+
+</html>
