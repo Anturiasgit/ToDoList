@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="todolist.js" defer></script>
+    <script src="js/todolist.js" defer></script>
     <title>To-Do List</title>
 </head>
 
@@ -13,11 +13,16 @@
     <div id="todolist">
         <h3>To-Do List</h3>
         <ul id="list">
+            <li id="all"><input type="checkbox" id="all" name="all">
+                <input type="button" value="suppr. tout">
+            </li>
             <li class="task"><input type="checkbox" id="task1" name="task1">
                 <label for="task1">Task 1</label>
+                <input type="button" value="suppr" class="suppr">
             </li>
             <li class="task"><input type="checkbox" id="task2" name="task2">
                 <label for="task2">Task 2</label>
+                <input type="button" value="suppr" class="suppr">
             </li>
         </ul>
     </div>
@@ -29,7 +34,7 @@
             <input type="submit" value="OK">
         </form>
     </div>
-  
+
 </body>
 
 </html>
