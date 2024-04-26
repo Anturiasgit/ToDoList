@@ -16,16 +16,16 @@ form.addEventListener('submit', function (event) {
     tasks.forEach(function (task) {
         task.addEventListener('change', handleCheckboxChange);
     });
-
+    
     for (let i = 0; i < suppr.length; i++) {
         suppr[i].addEventListener('click', deleteTask); 
     }
-}
-)
+});
 
 supprtout.addEventListener('click', function () {
-for (let i = 0; i < suppr.length; i++) {
-    suppr[i].parentNode.remove();
+    
+while (li.length > 0){
+    li[0].remove();
 }
 });
 
