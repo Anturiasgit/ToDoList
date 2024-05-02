@@ -3,6 +3,7 @@ const suppr = document.getElementsByClassName("suppr");
 const supprtout = document.getElementById("supprtout");
 const form = document.querySelector("form");
 const list = document.getElementById("list");
+const selectAll = document.getElementById("all");
 
 
 form.addEventListener('submit', function (event) {
@@ -27,6 +28,21 @@ supprtout.addEventListener('click', function () {
 while (li.length > 0){
     li[0].remove();
 }
+});
+
+selectAll.addEventListener('click', function() {
+    for(i=0; i<li.length; i++) {
+         const label = li[i].querySelector('label');
+
+        label.style.textDecoration = "line-through";
+    }
+ 
+    const checkboxes = li[i].getElementsByClassName("task");
+    
+    checkboxes.forEach(function(checkbox){
+        checkbox.checked = true;           
+     });
+
 });
 
 
