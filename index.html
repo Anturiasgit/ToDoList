@@ -10,20 +10,20 @@
 </head>
 
 <body>
-    <div id="todolist">
-        <h3>To-Do List</h3>
-        <ul id="list">
-            <li><input type="checkbox" id="all" name="all">
+    <div id="div">
+        <h1>To-Do List</h1>
+        <ul id="todolist">
+            <li id="selectAll"><input type="checkbox" name="all">
                 <label for="all">Select All</label>
-                <input type="button" value="suppr. tout" id="supprtout">
+                <input type="button" value="suppr. tout">
             </li>
         </ul>
     </div>
 
-    <div id="add">
+    <div>
         <form action="#" method="post">
-            <label for="tasktoadd">New Task : </label>
-            <input type="text" id="tasktoadd" name="tasktoadd" required>
+            <label for="new">New Task : </label>
+            <input type="text" name="new" required>
             <input type="submit" value="OK">
         </form>
     </div>

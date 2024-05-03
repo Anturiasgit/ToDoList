@@ -1,40 +1,49 @@
-const li = document.getElementsByClassName("task");
-const suppr = document.getElementsByClassName("suppr");
-const supprtout = document.getElementById("supprtout");
 const form = document.querySelector("form");
-const list = document.getElementById("list");
-const selectAll = document.getElementById("all");
+const tasks = document.getElementsByClassName("task");
+const supprtout = document.querySelector('input[value="suppr. tout"]');
+const todolist = document.getElementById("todolist");
+const selectAll = document.querySelector('input[type="checkbox"]');
+
 
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
-    let newtask = document.getElementById("tasktoadd").value;
-    let toadd = document.createElement('li');
-    toadd.className = "task";
-    toadd.innerHTML = '<input type="checkbox" name="task"><label for="task">' + newtask + '</label><input type="button" value="suppr" class="suppr">';
-    list.appendChild(toadd);
-    const tasks = document.querySelectorAll('input[name="task"]');
-    tasks.forEach(function (task) {
-        task.addEventListener('change', handleCheckboxChange);
+    const taskName = document.querySelector('input[name="new"]').value;
+    let newTask = document.createElement('li');
+    newTask.className = "task";
+    newTask.innerHTML = '<input type="checkbox" name="task_checkbox"><label for="task_checkbox">' + taskName + '</label><input type="button" value="suppr">';
+    todolist.appendChild(newTask);
+
+    const taskCheckboxes = document.querySelectorAll('input[name="task_checkbox"]');
+    taskCheckboxes.forEach(function (taskCheckbox) {
+        taskCheckbox.addEventListener('change', handleCheckboxChange);
     });
     
-    for (let i = 0; i < suppr.length; i++) {
-        suppr[i].addEventListener('click', deleteTask); 
+    for (let i = 0; i < tasks.length; i++) {
+        const btnSuppr = tasks[i].querySelector('input[value="suppr"]');
+        btnSuppr.addEventListener('click', deleteTask); 
     }
+
+
+    document.querySelector('input[type="text"]').value = "";
 });
 
+
+
+
 supprtout.addEventListener('click', function () {
-    
-while (li.length > 0){
-    li[0].remove();
+    while (tasks.length > 0){
+    tasks[0].remove();
 }
 });
 
+
+
 selectAll.addEventListener('click', function() {
-    for(i=0; i<li.length; i++) {
-         const label = li[i].querySelector('label');
+    for(i = 0; i < tasks.length; i++) {
+         const label = tasks[i].querySelector('label');
         label.style.textDecoration = "line-through";
-        const checkboxes = li[i].querySelectorAll('input[name="task"]');
+        const checkboxes = tasks[i].querySelectorAll('input[type="checkbox"]');
          checkboxes.forEach(function(checkbox){
             checkbox.checked = true;           
          });
@@ -45,13 +54,13 @@ selectAll.addEventListener('click', function() {
 
 
 function handleCheckboxChange(event) {
-    const task = event.target;
-    const label = task.nextElementSibling;
+    const taskCheckbox = event.target;
+    const taskLabel = taskCheckbox.nextElementSibling;
 
-    if (task.checked) {
-        label.style.textDecoration = "line-through";
+    if (taskCheckbox.checked) {
+        taskLabel.style.textDecoration = "line-through";
     } else {
-        label.style.textDecoration = "none";
+        taskLabel.style.textDecoration = "none";
     }
 }
 
