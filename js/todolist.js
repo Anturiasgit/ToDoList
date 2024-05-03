@@ -33,15 +33,12 @@ while (li.length > 0){
 selectAll.addEventListener('click', function() {
     for(i=0; i<li.length; i++) {
          const label = li[i].querySelector('label');
-
         label.style.textDecoration = "line-through";
+        const checkboxes = li[i].querySelectorAll('input[name="task"]');
+         checkboxes.forEach(function(checkbox){
+            checkbox.checked = true;           
+         });
     }
- 
-    const checkboxes = li[i].getElementsByClassName("task");
-    
-    checkboxes.forEach(function(checkbox){
-        checkbox.checked = true;           
-     });
 
 });
 
