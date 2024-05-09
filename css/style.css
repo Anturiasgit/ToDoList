@@ -1,5 +1,28 @@
+body {
+    font-family: "Caveat", cursive;  
+    background-color: #ECEAAD; 
+} 
+
 #div {
     text-align: center;
+}
+
+ul {
+    padding-top: 20px;
+}
+
+li {
+    padding-bottom: 15px;
+}
+
+label {
+    padding-right: 25px;
+    padding-left: 3px;
+}
+
+#selectAll {
+    list-style-type: none;
+    padding-bottom: 20px;    
 }
 
 .task {
@@ -12,3 +35,22 @@ form{
     right: 20px;
     position: fixed;
 }
+
+input[type="button"]{
+    border-radius: 10px;
+    background-color: #e7ab42;
+    font-family: "Caveat", cursive;  
+    border-color: rgb(233, 8, 8);
+    border-style: solid;    
+    color: brown;
+    font-size: x-small;
+}
+
+input[type="button"]:hover {
+    background-color: #ddb46d;
+}
+
+input[type="button"]:active {
+    background-color: #d68d10;
+}
+

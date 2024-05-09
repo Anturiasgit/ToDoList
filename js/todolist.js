@@ -6,6 +6,7 @@ const selectAll = document.querySelector('input[type="checkbox"]');
 
 
 
+
 form.addEventListener('submit', function (event) {
     event.preventDefault();
     const taskName = document.querySelector('input[name="new"]').value;
@@ -18,37 +19,14 @@ form.addEventListener('submit', function (event) {
     taskCheckboxes.forEach(function (taskCheckbox) {
         taskCheckbox.addEventListener('change', handleCheckboxChange);
     });
-    
+
     for (let i = 0; i < tasks.length; i++) {
         const btnSuppr = tasks[i].querySelector('input[value="suppr"]');
-        btnSuppr.addEventListener('click', deleteTask); 
+        btnSuppr.addEventListener('click', deleteTask);
     }
 
 
     document.querySelector('input[type="text"]').value = "";
-});
-
-
-
-
-supprtout.addEventListener('click', function () {
-    while (tasks.length > 0){
-    tasks[0].remove();
-}
-});
-
-
-
-selectAll.addEventListener('click', function() {
-    for(i = 0; i < tasks.length; i++) {
-         const label = tasks[i].querySelector('label');
-        label.style.textDecoration = "line-through";
-        const checkboxes = tasks[i].querySelectorAll('input[type="checkbox"]');
-         checkboxes.forEach(function(checkbox){
-            checkbox.checked = true;           
-         });
-    }
-
 });
 
 
@@ -65,10 +43,47 @@ function handleCheckboxChange(event) {
 }
 
 
-function deleteTask (event) {
+
+selectAll.addEventListener('change', function (event){
+    const selectAllCheckbox = event.target;
+    
+    if (selectAllCheckbox.checked) {
+        for (i = 0; i < tasks.length; i++) {
+            const label = tasks[i].querySelector('label');
+            label.style.textDecoration = "line-through";
+            const checkboxes = tasks[i].querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = true;
+            });
+        }
+    } else {
+        for (i = 0; i < tasks.length; i++) {
+            const label = tasks[i].querySelector('label');
+            label.style.textDecoration = "none";
+            const checkboxes = tasks[i].querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+        }
+    }
+});
+
+
+
+function deleteTask(event) {
     const btnSuppr = event.target;
     btnSuppr.parentNode.remove();
 }
+
+
+
+supprtout.addEventListener('click', function () {
+    while (tasks.length > 0) {
+        tasks[0].remove();
+    }
+});
+
+
 
 
 
