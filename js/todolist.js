@@ -8,17 +8,24 @@ const selectAll = document.querySelector('input[type="checkbox"]');
 
 
 form.addEventListener('submit', function (event) {
-    event.preventDefault();
+
+                                    /* Ajout d'une nouvelle tâche */
+
+    event.preventDefault(); 
     const taskName = document.querySelector('input[name="new"]').value;
-    let newTask = document.createElement('li');
+    let newTask = document.createElement('li'); 
     newTask.className = "task";
     newTask.innerHTML = '<input type="checkbox" name="task_checkbox"><label for="task_checkbox">' + taskName + '</label><input type="button" value="suppr">';
     todolist.appendChild(newTask);
+
+                                    /* Gestion du click sur une checkbox */
 
     const taskCheckboxes = document.querySelectorAll('input[name="task_checkbox"]');
     taskCheckboxes.forEach(function (taskCheckbox) {
         taskCheckbox.addEventListener('change', handleCheckboxChange);
     });
+
+                                    /* Gestion du click sur un bouton de suppression */
 
     for (let i = 0; i < tasks.length; i++) {
         const btnSuppr = tasks[i].querySelector('input[value="suppr"]');
@@ -26,10 +33,10 @@ form.addEventListener('submit', function (event) {
     }
 
 
-    document.querySelector('input[type="text"]').value = "";
+    document.querySelector('input[type="text"]').value = ""; // Réinitialisation de la zone de texte lorsqu'une tâche est soumise
 });
 
-
+                        /* Fonctions qui barrent les tâches cochées */
 
 function handleCheckboxChange(event) {
     const taskCheckbox = event.target;
@@ -41,7 +48,6 @@ function handleCheckboxChange(event) {
         taskLabel.style.textDecoration = "none";
     }
 }
-
 
 
 selectAll.addEventListener('change', function (event){
@@ -68,7 +74,7 @@ selectAll.addEventListener('change', function (event){
     }
 });
 
-
+                        /* Fonctions qui suppriment les tâches */
 
 function deleteTask(event) {
     const btnSuppr = event.target;
