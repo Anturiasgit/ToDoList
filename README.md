@@ -1,3 +1,5 @@
+#To Do List
+
 ## Description
 
 Cette application de To Do List permet à l'utilisateur d'ajouter, de supprimer et de gérer ses tâches. Les tâches peuvent être marquées comme complètes à l'aide de cases à cocher. L'application offre également une option pour supprimer toutes les tâches d'un coup.
